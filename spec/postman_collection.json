@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "0058a576-fb82-48b8-b551-179939e6b446",
+		"name": "Snappy Shopper Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4848207"
+	},
+	"item": [
+		{
+			"name": "Add store",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "auth_token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Spar\",\n    \"postcode\": \"ZE10TY\",\n    \"store_type\": \"shop\",\n    \"is_open\": true,\n    \"max_delivery_distance\": 5.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/add-store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"add-store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "nearest postcode search",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "auth_token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api/search/stores/all/AB11QN/2000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"search",
+						"stores",
+						"all",
+						"AB11QN",
+						"2000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "can deliver too search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "auth_token",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"My Other Shop\",\n    \"postcode\": \"S75 5QS\",\n    \"store_type\": \"shop\",\n    \"is_open\": true,\n    \"max_delivery_distance\": 5.0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1/api/search/delivery/store/ZE10TY/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"api",
+						"search",
+						"delivery",
+						"store",
+						"ZE10TY",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
