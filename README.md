@@ -1,4 +1,4 @@
-# Snappy Shopper test application
+# Test application
 Author: Kevin Revill
 
 ## Installation guide.
